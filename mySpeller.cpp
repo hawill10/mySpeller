@@ -36,7 +36,7 @@ class StringLinkedList{
 
 class mySpeller{
     public:
-        static void search(StringLinkedList list);
+        static int determineMode(string input);
         static void searchFull(StringLinkedList list, string word);
         static void searchPrefix(StringLinkedList list, string word);
         static void searchThree(StringLinkedList list, string word);
@@ -132,41 +132,26 @@ int main(int argc, char* argv[]){
     
     
     /*ask for input*/
-//    string wordInput;
-//    cout<<"Check Spelling for: ";
-//    cin>>wordInput;
+    string wordInput;
+    cout<<"Check Spelling for: ";
+    cin>>wordInput;
 //    for (int i = 0; i < wordInput.size() ; i++){
 //        cout<<wordInput[i];
 //    }
 //    cout<<endl;
     
-//    /*check if input is exit or not*/
-//    while(input!=Exit){
-//
-//
-//
-//        /*figure out whether the input is a full word, prefix or ?*/
-//        if(){
-//
-//        }
-//        else if(){
-//
-//        }
-//        else if(){
-//
-//        }
-//        else{
-//
-//        }
-    
-}
-
-int mySpeller::findKey(string word){
-    char firstLetter = word[0];
-    for(int i = 0; i < keyLength; i++){
-        if (firstLetter == key[i]) return i+1;
+    /*check if input is exit or not*/
+    while(wordInput.compare("exit") != 0){
+        int mode = mySpeller::determineMode(wordInput);
+        cout<<mode<<endl;
+        wordInput = "exit";
+        
     }
-    return 0;
+//
+//
+//
+//
+    
 }
 
 string StringNode:: getElement() const{
@@ -204,7 +189,26 @@ void StringLinkedList::addAfter(string word, StringNode* current ){
         current -> next = s;
     }
 }
+
 StringNode* StringLinkedList::getFront() const{
     return head;
+}
+int mySpeller::determineMode(string input){
+    int inputLength = input.length();
+    if(input[inputLength-1] == '*') return 1;
+    for(int i = 1; i < inputLength; i++){
+            if(input[i] == '?') return 2;
+    }
+    return 0;
+}
+int mySpeller::findKey(string word){
+    char firstLetter = word[0];
+    for(int i = 0; i < keyLength; i++){
+        if (firstLetter == key[i]) return i+1;
+    }
+    return 0;
+}
+void mySpeller::searchThree(StringLinkedList list, string word){
+    
 }
 
