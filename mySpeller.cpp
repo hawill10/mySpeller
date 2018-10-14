@@ -40,13 +40,14 @@ class mySpeller{
         static void searchFull(StringLinkedList list, string word);
         static void searchPrefix(StringLinkedList list, string word);
         static void searchThree(StringLinkedList list, string word);
-}
+        static int findKey(string word); //finds the index of the array of words the code should iterate through
+};
 
 int keyLength =52;
 char key [52];
 
 
-int findKey(string word); //finds the index of the array of words the code should iterate through
+
 
 /*get dictionary name as input and use that dictionary for the program*/
 int main(int argc, char* argv[]){
@@ -160,7 +161,7 @@ int main(int argc, char* argv[]){
     
 }
 
-int findKey(string word){
+int mySpeller::findKey(string word){
     char firstLetter = word[0];
     for(int i = 0; i < keyLength; i++){
         if (firstLetter == key[i]) return i+1;
