@@ -144,6 +144,8 @@ int main(int argc, char* argv[]){
     while(wordInput.compare("exit") != 0){
         int mode = mySpeller::determineMode(wordInput);
         cout<<mode<<endl;
+        int searchIndex = mySpeller::findKey(wordInput);
+        cout<<searchIndex<<endl;
         wordInput = "exit";
         
     }
