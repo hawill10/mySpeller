@@ -34,6 +34,14 @@ class StringLinkedList{
         StringNode* getFront() const; //returns the head of the linkedlist
 };
 
+class mySpeller{
+    public:
+        static void search(StringLinkedList list);
+        static void searchFull(StringLinkedList list, string word);
+        static void searchPrefix(StringLinkedList list, string word);
+        static void searchThree(StringLinkedList list, string word);
+}
+
 int keyLength =52;
 char key [52];
 
